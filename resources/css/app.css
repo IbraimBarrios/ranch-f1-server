@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @layer components {
+
+  /* table */
     .table-responsive {
         @apply w-full table-auto;
     }
@@ -37,4 +39,6 @@
     .table-actions {
         @apply flex flex-wrap gap-2 justify-start md:justify-center;
     }
+
+    /* End table */
 }
