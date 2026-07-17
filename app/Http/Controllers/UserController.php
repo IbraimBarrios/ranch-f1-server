@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::where('id', '!=', auth()->id())->orderBy('created_at', 'asc')->get();
+        $users = User::with('role')->where('id', '!=', auth()->id())->orderBy('created_at', 'asc')->get();
 
         return view('user.index', ['users' => $users]);
     }
@@ -59,6 +59,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $user->load('role');
+        
         return view('user.show', ['user' => $user]);
     }
 
