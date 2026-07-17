@@ -13,38 +13,38 @@
                         <a href="{{ route('roles.create') }}" class="bg-cyan-500 dark:bg-cyan-700 hover:bg-cyan-600 dark:hover:bg-cyan-800 text-white font-bold py-2 px-4 rounded">Crear rol</a>
                     </div>
                     @if ($roles->isNotEmpty())
-                    <table class="w-full table-auto">
-                        <thead class="hidden md:table-header-group bg-gray-100 dark:bg-gray-800">
+                    <table class="table-responsive">
+                        <thead class="table-head">
                             <tr>
-                                <th class="px-4 py-2 text-gray-900 dark:text-white text-center">ID</th>
-                                <th class="px-4 py-2 text-gray-900 dark:text-white text-center">Rol</th>
-                                <th class="px-4 py-2 text-gray-900 dark:text-white text-center">Descripción</th>
-                                <th class="px-4 py-2 text-gray-900 dark:text-white text-center">Acciones</th>
+                                <th class="table-header-cell">ID</th>
+                                <th class="table-header-cell">Rol</th>
+                                <th class="table-header-cell">Descripción</th>
+                                <th class="table-header-cell">Acciones</th>
                             </tr>
                         </thead>
     
-                        <tbody class="grid grid-cols-1 gap-4 md:table-row-group">
+                        <tbody class="table-body">
                             @foreach($roles as $role)
-                            <tr class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 grid grid-cols-1 md:table-row md:border-b">
-                                <td class="px-4 py-2 text-gray-900 dark:text-white flex justify-between md:table-cell border-b border-gray-100 dark:border-gray-800 md:border-none md:text-center">
-                                    <span class="font-bold text-md text-gray-500 dark:text-gray-400 md:hidden">ID</span>
+                            <tr class="table-row">
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                    <span class="table-mobile-label">ID</span>
                                     <span>{{ $role->id }}</span>
                                 </td>
 
-                                <td class="px-4 py-2 text-gray-900 dark:text-white flex justify-between md:table-cell border-b border-gray-100 dark:border-gray-800 md:border-none md:text-center">
-                                    <span class="font-bold text-md text-gray-500 dark:text-gray-400 md:hidden">Rol</span>
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                    <span class="table-mobile-label">Rol</span>
                                     <span>{{ $role->name }}</span>
                                 </td>
 
-                                <td class="px-4 py-2 text-gray-900 dark:text-white flex justify-between md:table-cell border-b border-gray-100 dark:border-gray-800 md:border-none md:text-center">
-                                    <span class="font-bold text-md text-gray-500 dark:text-gray-400 md:hidden">Descripción</span>
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                    <span class="table-mobile-label">Descripción</span>
                                     <span>{{ $role->description }}</span>
                                 </td>
 
-                                <td class="px-4 py-3 md:py-2 flex flex-col md:table-cell md:text-center">
-                                    <span class="font-bold text-md text-gray-500 dark:text-gray-400 md:hidden mb-2">Acciones</span>
+                                <td class="table-cell-actions">
+                                    <span class="table-mobile-label mb-2">Acciones</span>
                                     
-                                    <div class="flex flex-wrap gap-2 justify-start md:justify-center">
+                                    <div class="table-actions">
                                         <a href="{{ route('roles.show', $role->id) }}" class="bg-green-500 dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-800 text-white font-bold py-2 px-4 rounded text-center text-sm">
                                             Ver
                                         </a>
