@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .table-responsive {
+        @apply w-full table-auto;
+    }
+    .table-head {
+        @apply hidden md:table-header-group bg-gray-100 dark:bg-gray-800;
+    }
+
+    .table-header-cell {
+        @apply px-4 py-2 text-center text-gray-900 dark:text-white;
+    }
+
+    .table-body {
+        @apply grid grid-cols-1 gap-4 md:table-row-group;
+    }
+
+    .table-row {
+        @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 grid grid-cols-1;
+    }
+
+    .rf-table-cell {
+        @apply px-4 py-2 text-gray-900 dark:text-white border-b border-gray-100 dark:border-gray-800;
+    }
+
+    .table-cell-actions {
+        @apply px-4 py-3 md:py-2 flex flex-col md:table-cell md:text-center;
+    }
+
+    .table-mobile-label {
+        @apply font-bold text-base text-gray-500 dark:text-gray-400 md:hidden;
+    }
+
+    .table-actions {
+        @apply flex flex-wrap gap-2 justify-start md:justify-center;
+    }
+}
