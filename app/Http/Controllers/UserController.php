@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::where('id', '!=', auth()->id())->orderBy('created_at', 'asc')->get();
+        $users = User::with('role')->where('id', '!=', auth()->id())->orderBy('created_at', 'asc')->get();
 
         return view('user.index', ['users' => $users]);
     }
@@ -26,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $roles = Role::all();
+        
+        return view('user.create', ['roles' => $roles]);
     }
 
     /**
@@ -38,12 +41,14 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role_id' => ['required', 'exists:roles,id'],
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role_id' => $request->role_id,
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
@@ -54,6 +59,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $user->load('role');
+        
         return view('user.show', ['user' => $user]);
     }
 
@@ -62,7 +69,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit', ['user' => $user]);
+        $roles = Role::all();
+
+        return view('user.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
@@ -79,6 +88,7 @@ class UserController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
+            'role_id' => ['required', 'exists:roles,id'],
         ]);
 
         $user->fill($validated);

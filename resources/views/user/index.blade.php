@@ -26,6 +26,7 @@
                                 <th class="table-header-cell">Nombre</th>
                                 <th class="table-header-cell">Email</th>
                                 <th class="table-header-cell">Status</th>
+                                <th class="table-header-cell">Usuario</th>
                                 <th class="table-header-cell">Acciones</th>
                             </tr>
                         </thead>
@@ -51,6 +52,11 @@
                                 <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
                                     <span class="table-mobile-label">Status</span>
                                     <span>{{ $user->status }}</span>
+                                </td>
+
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                    <span class="table-mobile-label">Usuario</span>
+                                    <span>{{ $user->role->name }}</span>
                                 </td>
 
                                 <td class="table-cell-actions">

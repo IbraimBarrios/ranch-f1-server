@@ -24,6 +24,32 @@
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
+                    <div class="mb-5">
+                        <x-input-label for="role_id" :value="__('Rol')" />
+                        <select
+                            id="role_id"
+                            name="role_id"
+                            class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm"
+                            required
+                        >
+                            <option value="">
+                                Seleccione un rol
+                            </option>
+
+                            @foreach ($roles as $role)
+
+                                <option
+                                    value="{{ $role->id }}"
+                                    @selected(old('role_id', $user->role_id) == $role->id)
+                                >
+                                    {{ $role->name }}
+                                </option>
+
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('role_id')" class="mt-2" />
+                    </div>
+
                     <x-primary-button>{{ __('Salvar') }}</x-primary-button>
                     <x-cancel-link :href="route('users.index')">Cancelar</x-cancel-link>
                 </form>
