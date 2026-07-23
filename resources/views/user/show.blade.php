@@ -9,7 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6 lg:p-8">
                 <div class="flex justify-end">
-                    <x-back-link :href="route('users.index')">Regresar</x-back-link>
+                    <x-back-link :href="route('users.index')" class="mr-2">Regresar</x-back-link>
+                    <x-back-link :href="route('profile.show', $user)">Perfil</x-back-link>
                 </div>
               <div class="border-b border-gray-200 dark:border-gray-700 px-6 py-4">
                   <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
