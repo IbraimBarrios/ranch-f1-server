@@ -14,8 +14,25 @@
 
                     <div class="mb-5">
                         <x-input-label for="name" :value="__('Nombre del rol')" />
-                        <x-text-input id="name" name="name" type="text" class="lowercase mt-1 block w-full" :value="old('name', $role->name)" required autofocus />
+                        <x-text-input 
+                            id="name" 
+                            name="name" 
+                            type="text" 
+                            class="lowercase mt-1 block w-full 
+                                {{ $canEditName
+                                    ? 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                                    : 'bg-white dark:bg-gray-900'
+                                }}"
+                            :value="old('name', $role->name)" 
+                            :readonly="$canEditName" 
+                            :autofocus="!$canEditName" 
+                            required  />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        @if ($canEditName)
+                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                                Este rol ya está asignado a uno o más usuarios y su nombre no puede modificarse.
+                            </p>
+                        @endif
                     </div>
 
                     <div class="mb-5">
