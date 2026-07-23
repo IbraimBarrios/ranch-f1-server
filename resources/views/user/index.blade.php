@@ -51,7 +51,13 @@
 
                                 <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
                                     <span class="table-mobile-label">Status</span>
-                                    <span>{{ $user->status }}</span>
+                                    <span>
+                                        @if ($user->status === 'active')
+                                            Activo
+                                        @else
+                                            Inactivo                                       
+                                        @endif
+                                    </span>
                                 </td>
 
                                 <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">

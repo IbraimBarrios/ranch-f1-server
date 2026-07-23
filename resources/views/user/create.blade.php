@@ -13,7 +13,7 @@
 
                     <div class="mb-5">
                         <x-input-label for="name" :value="__('Nombre')" />
-                        <x-text-input id="name" name="name" type="text" class="lowercase mt-1 block w-full" :value="old('name')" required autofocus />
+                        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name')" required autofocus />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
