@@ -82,6 +82,12 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        if ($role->users()->exists()) {
+            return redirect()
+                ->route('roles.index')
+                ->with('error', 'No se puede eliminar el rol porque tiene usuarios asignados.');
+        }
+
         $role->delete();
         
         return redirect()->route('roles.index');
