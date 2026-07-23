@@ -30,11 +30,51 @@
 
                       <div class="grid grid-cols-1 md:grid-cols-3 py-4">
                           <dt class="font-semibold text-gray-600 dark:text-gray-300">
-                              Nombre
+                              Nombres
                           </dt>
 
                           <dd class="md:col-span-2 text-gray-900 dark:text-white">
                               {{ $profile->last_name }}
+                          </dd>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                          <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                              Apellidos
+                          </dt>
+
+                          <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                              {{ $profile->last_name }} {{ $profile->second_last_name }}
+                          </dd>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                          <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                              Teléfono
+                          </dt>
+
+                          <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                              {{ $profile->phone }}
+                          </dd>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                          <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                              Fecha de nacimiento
+                          </dt>
+
+                          <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                              {{ $profile->birth_date->format('d/m/Y') }}
+                          </dd>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                          <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                              Dirección
+                          </dt>
+
+                          <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                              {{ $profile->address }}
                           </dd>
                       </div>
 
