@@ -89,6 +89,7 @@ class UserController extends Controller
                 Rule::unique('users')->ignore($user->id),
             ],
             'role_id' => ['required', 'exists:roles,id'],
+            'status' => ['required', 'in:active,inactive'],
         ]);
 
         $user->fill($validated);

@@ -70,6 +70,20 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 py-4">
                         <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                            Status
+                        </dt>
+
+                        <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                            @if ($user->status === 'active')
+                                Activo
+                            @else
+                                Inactivo
+                            @endif
+                        </dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                        <dt class="font-semibold text-gray-600 dark:text-gray-300">
                             Fecha de creación
                         </dt>
 

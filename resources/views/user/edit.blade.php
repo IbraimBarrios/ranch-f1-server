@@ -50,6 +50,23 @@
                         <x-input-error :messages="$errors->get('role_id')" class="mt-2" />
                     </div>
 
+                    <div class="mb-5">
+                        <x-input-label for="status" :value="__('Status')" />
+                        <select
+                            id="status"
+                            name="status"
+                            class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm"
+                            required
+                        >
+                            <option value="">
+                                Seleccione un estado
+                            </option>
+                            <option value="active" @selected(old('status', $user->status) == 'active')>Activo</option>
+                            <option value="inactive" @selected(old('status', $user->status) == 'inactive')>Inactivo</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('status')" class="mt-2" />
+                    </div>
+
                     <x-primary-button>{{ __('Salvar') }}</x-primary-button>
                     <x-cancel-link :href="route('users.index')">Cancelar</x-cancel-link>
                 </form>
