@@ -51,6 +51,24 @@ class LoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
+
+        $user = Auth::user();
+
+        if ($user->status !== 'active') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'email' => 'Tu usuario no está activo.',
+            ]);
+        }
+
+        if ($user->role->name !== 'admin') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'email' => 'No tienes permisos para ingresar.',
+            ]);
+        }
     }
 
     /**
