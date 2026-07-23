@@ -56,8 +56,9 @@ class RoleController extends Controller
     public function edit(string $id)
     {
         $role = Role::findOrFail($id);
+        $canEditName = $role->users()->exists();
 
-        return view('role.edit', ['role' => $role]);
+        return view('role.edit', ['role' => $role, 'canEditName' => $canEditName]);
     }
 
     /**
@@ -71,6 +72,12 @@ class RoleController extends Controller
         ]);
 
         $role = Role::findOrFail($id);
+
+        if ($role->users()->exists() && $role->name !== $request->name) {
+            return back()->withErrors([
+                'name' => 'No se puede modificar el nombre de un rol que ya está asignado.',
+            ]);
+        }
 
         $role->update($validated);
 
