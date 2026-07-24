@@ -23,8 +23,6 @@
                                 <th class="table-header-cell">ID</th>
                                 <th class="table-header-cell">Nombre</th>
                                 <th class="table-header-cell">Descripción</th>
-                                <th class="table-header-cell">Teléfono</th>
-                                <th class="table-header-cell">Correo</th>
                                 <th class="table-header-cell">Dirección</th>
                                 <th class="table-header-cell">Status</th>
                                 <th class="table-header-cell">Acciones</th>
@@ -44,24 +42,14 @@
                                     <span>{{ $ranch->name }}</span>
                                 </td>
 
-                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center md:w-64">
                                     <span class="table-mobile-label">Descripción</span>
-                                    <span>{{ $ranch->description }}</span>
+                                    <span class="line-clamp-1">{{ $ranch->description }}</span>
                                 </td>
 
-                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
-                                    <span class="table-mobile-label">Teléfono</span>
-                                    <span>{{ $ranch->phone }}</span>
-                                </td>
-
-                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
-                                    <span class="table-mobile-label">Correo</span>
-                                    <span>{{ $ranch->email }}</span>
-                                </td>
-
-                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">
+                                <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center md:w-64">
                                     <span class="table-mobile-label">Dirección</span>
-                                    <span>{{ $ranch->address }}</span>
+                                    <span class="line-clamp-1">{{ $ranch->address }}</span>
                                 </td>
 
                                 <td class="rf-table-cell flex justify-between md:table-cell md:border-none md:text-center">

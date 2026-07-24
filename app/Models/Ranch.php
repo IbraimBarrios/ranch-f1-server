@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ranch extends Model
 {
+    protected $fillable = [
+        'name',
+        'description',
+        'phone',
+        'address',
+        'user_id'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
