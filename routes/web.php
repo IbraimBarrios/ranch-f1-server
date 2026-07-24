@@ -24,8 +24,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [UserProfileController::class, 'show'])->name('profile.show');
         Route::get('/create', [UserProfileController::class, 'create'])->name('profile.create');
         Route::post('/', [UserProfileController::class, 'store'])->name('profile.store');
-        Route::get('/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
-        Route::put('/', [UserProfileController::class, 'update'])->name('profile.update');
+        Route::get('/edit', [UserProfileController::class, 'edit'])->name('user.profile.edit');
+        Route::put('/', [UserProfileController::class, 'update'])->name('user.profile.update');
     });
     
     Route::resource('roles', RoleController::class);

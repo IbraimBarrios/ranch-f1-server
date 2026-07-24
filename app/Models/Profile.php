@@ -11,7 +11,8 @@ class Profile extends Model
         'first_name', 
         'last_name', 
         'second_last_name', 
-        'phone', 'birth_date', 
+        'phone', 
+        'birth_date', 
         'address',
         'user_id'
     ];

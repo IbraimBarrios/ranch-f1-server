@@ -17,6 +17,10 @@
                       <x-create-link :href="route('profile.create', $user)" class="ml-2">
                           Crear Perfil
                       </x-create-link>
+                    @else
+                        <x-edit-link :href="route('user.profile.edit', $user)" class="ml-2">
+                            Editar Perfil
+                        </x-edit-link>
                     @endif
                 </div>
               @if ($profile)
@@ -34,7 +38,7 @@
                           </dt>
 
                           <dd class="md:col-span-2 text-gray-900 dark:text-white">
-                              {{ $profile->last_name }}
+                              {{ $profile->first_name }}
                           </dd>
                       </div>
 

@@ -53,24 +53,29 @@ class UserProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        $profile = $user->profile;
+
+        return view('user-profile.edit', ['user' => $user, 'profile' => $profile]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
-    }
+        $validated = $request->validate([
+            'first_name' => ['required', 'string', 'min:3', 'max:100'],
+            'last_name' => ['required', 'string', 'min:3', 'max:100'],
+            'second_last_name' => ['nullable', 'string', 'min:3', 'max:100'],
+            'phone' => ['required', 'string', 'regex:/^[0-9+\-\s]+$/', 'max:15'],
+            'birth_date' => ['required', 'date', 'before:today'],
+            'address' => ['required', 'string', 'min:3', 'max:255'],
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $user->profile->update($validated);
+
+        return redirect()->route('profile.show', $user)->with('success', 'Perfil actualizado correctamente.');
     }
 }
