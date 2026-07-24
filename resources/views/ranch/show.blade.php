@@ -73,6 +73,16 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 py-4">
                         <dt class="font-semibold text-gray-600 dark:text-gray-300">
+                            Propietario o Administrador del Rancho
+                        </dt>
+
+                        <dd class="md:col-span-2 text-gray-900 dark:text-white">
+                            {{ $ranch->user->name }}
+                        </dd>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 py-4">
+                        <dt class="font-semibold text-gray-600 dark:text-gray-300">
                             Status
                         </dt>
 
