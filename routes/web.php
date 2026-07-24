@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RanchController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::resource('roles', RoleController::class);
+    Route::resource('ranches', RanchController::class);
 
 });
 
