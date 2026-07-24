@@ -34,6 +34,14 @@ class User extends Authenticatable
         ];
     }
 
+    //Nota: scope para refactorizar obtener usuario de ranchos
+    public function scopeRanchOwners($query)
+    {
+        return $query->whereHas('role', function ($query) {
+            $query->where('name', 'admin ranch');
+        });
+    }
+
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);

@@ -23,9 +23,11 @@ class RanchController extends Controller
      */
     public function create()
     {
-        $owners = User::whereHas('role', function ($query) {
-            $query->where('name', 'admin ranch');
-        })->orderBy('name')->get();
+        // $owners = User::whereHas('role', function ($query) {
+        //     $query->where('name', 'admin ranch');
+        // })->orderBy('name')->get();
+
+        $owners = User::ranchOwners()->orderBy('name')->get();
 
         return view('ranch.create', ['owners' => $owners]);
     }
@@ -64,6 +66,8 @@ class RanchController extends Controller
         $owners = User::whereHas('role', function ($query) {
             $query->where('name', 'admin ranch');
         })->orderBy('name')->get();
+
+        // $owners = User::ranchOwners()->orderBy('name')->get();
 
         return view('ranch.edit', ['ranch' => $ranch, 'owners' => $owners]);
     }
