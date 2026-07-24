@@ -78,6 +78,7 @@ class RanchController extends Controller
             'description' => ['nullable', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'regex:/^[0-9+\-\s]+$/', 'max:15'],
             'address' => ['required', 'string', 'min:3', 'max:255'],
+            'status' => ['required', 'in:active,inactive'],
             'user_id' => ['required', 'exists:users,id']
         ]);
 

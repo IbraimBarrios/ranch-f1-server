@@ -12,6 +12,7 @@ class Ranch extends Model
         'description',
         'phone',
         'address',
+        'status',
         'user_id'
     ];
 
