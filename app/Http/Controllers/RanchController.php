@@ -13,7 +13,7 @@ class RanchController extends Controller
      */
     public function index()
     {
-        $ranches = Ranch::all();
+        $ranches = Ranch::orderBy('created_at', 'desc')->get();
 
         return view('ranch.index', ['ranches' => $ranches]);
     }
